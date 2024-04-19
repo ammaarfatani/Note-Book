@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs'); -%>
+
+<style>
+
+</style>
+<a class="go-back" href="/index"> Go back </a>
+
+<div class="container">
+  <h1>Add a New Book</h1>
+  <form action="/add-books" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="Book Title" required>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" placeholder="Author" required>
+
+    <label for="isbn">ISBN Number:</label>
+    <input type="text" id="isbn" name="isbn" placeholder="ISBN Number">
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" placeholder="Rating" min="1" max="10" required>
+
+    <label for="summary">Summary:</label>
+    <textarea id="summary" name="summary" placeholder="Summary" rows="4" cols="50"></textarea>
+
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="notes" placeholder="Notes" rows="4" cols="50"></textarea>
+
+    <label for="date">Read Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <button type="submit">Add Book</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

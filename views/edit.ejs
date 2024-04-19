@@ -1,0 +1,34 @@
+<%- include('partials/header.ejs'); -%>
+
+<a class="go-back" href="/#main"> Go back </a>
+
+<div class="container">
+  <h1>Edit Book</h1>
+  <form action="/update" method="POST">
+    <input type="hidden" name="id" value="<%= book.id %>">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="<%= book.title %>" required>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" value="<%= book.author %>" required>
+
+    <label for="isbn">ISBN Number:</label>
+    <input type="text" id="isbn" placeholder="ISBN Number" name="isbn" value="<%= book.isbn_number %>">
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" min="1" max="10" value="<%= book.rating %>" required>
+
+    <label for="summary">Summary:</label>
+    <textarea id="summary" name="summary" rows="4" cols="50" required><%= book.summary %></textarea>
+
+    <label for="notes">notes:</label>
+    <textarea id="notes" name="notes" rows="4" cols="50" required><%= book.notes %></textarea>
+
+    <label for="readDate">Read Date:</label>
+    <input type="date" id="readDate" name="date" value="<%= book.date_read %>" required>
+
+    <button type="submit">Update Book</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

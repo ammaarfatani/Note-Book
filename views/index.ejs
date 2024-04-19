@@ -1,0 +1,147 @@
+<%- include('partials/header.ejs'); -%>
+
+<style>
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  #title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; 
+    padding: 20px;
+  }
+
+  .book {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+  }
+
+  .book-img {
+    max-width: 180px;
+    height: 270px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+  }
+
+  .book-title h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .author p {
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .rating p {
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .summary p {
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .notes h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+
+  .del-but {
+  padding: 8px;
+  color: white;
+  background-color: rgb(225, 30, 30);
+  cursor: pointer;
+  font-size: 18px;
+  float: right;
+  margin-right:10px;
+}
+
+.del-but:hover{
+  background-color: rgb(176, 83, 83);
+}
+
+.edit-but{
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px;
+  float: right;
+  
+}
+
+#main{
+  text-align: center;
+
+}
+</style>
+
+<div class="header">
+  <div class="full-page-image">
+    <div class="overlay">
+      <a href="/add"><img class="entry" src="https://img.icons8.com/?size=48&id=NfP72d4yfSqJ&format=png" alt="Add book icon"></a>
+      <a href="/login"><img class="login" src="https://img.icons8.com/?size=48&id=26223&format=png" alt="Login icon"></a>
+      <h1>Welcome to Book Notes</h1>
+      <p>Keep track of all the books you've read and discover new ones!</p>
+      <div class="btn-con">
+        <a href="#main" class="btns">My Books</a>
+        <a href="/add" class="btns">New Entries</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="main">MY BOOKS</h2>
+<div id="title">
+  <% for(let book of listBooks) { %>
+  <div class="book">
+    <img class="book-img" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number %>-M.jpg" alt="Book cover">
+    <div class="book-title">
+      <h2><%= book.title %></h2>
+    </div>
+    <div class="author">
+      <p><strong>By:</strong> <%= book.author %> </p>
+    </div>
+    <div class="rating">
+      <p><strong>I Strongly Recommend it:</strong> <%= book.rating %>/10</p>
+
+      <p><strong>Read Date:</strong> <%= book.date_read %></p>
+    </div>
+    <div class="summary">
+      <p><%= book.summary %></p>
+    </div>
+    <div class="notes">
+      <a href="/my-notes/<%= book.id %>"><h3 class="my-notes">My Notes</h3></a>
+    </div>
+    <div class="edit-del-btns">
+      <form action="/edit" method="post">
+        <input type="hidden" name="editBookId" value="<%= book.id %>">
+        <button class="edit-but" type="submit">EDIT</button>
+      </form>
+      <form action="/delete" method="post">
+        <input type="hidden" name="deleteBookId" value="<%= book.id %>">
+        <button class="del-but" type="submit">DELETE</button>
+      </form>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

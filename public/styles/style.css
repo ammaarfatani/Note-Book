@@ -1,0 +1,161 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.full-page-image {
+  background-image: url('https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  position: relative;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-con {
+  display: flex;
+}
+
+.btns {
+  padding: 10px 20px;
+  background-color: #cccccc;
+  color: #0d0d0d;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btns:hover {
+  text-decoration: none;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.entry {
+  position: fixed;
+  top: 20px; 
+  right: 20px; 
+}
+
+.login {
+  position: fixed;
+  top: 20px; 
+  right: 90px; 
+}
+
+
+.go-back {
+  position: absolute;
+  top: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  font-size: 20px;
+  color: black;
+  border-bottom: 2px solid black;
+  padding: 5px;
+  text-decoration: none; /* Remove default underline */
+}
+
+.go-back:hover {
+  color: #dfb162;
+  border-top: 2px solid #dfb162;
+  border-bottom: none;
+}
+
+ 
+
+
+.back {
+  text-decoration: none;
+  border-bottom: solid 2px #007bff;
+  color:#000000;
+  font-size: 35px;
+  margin-left: 40px;
+}
+
+.back:hover {
+  border-top: solid 2px black;
+  color: #007bff;
+}
+
+/* inputs */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.my-notes{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.book-img {
+  padding-top: 10px;
+}

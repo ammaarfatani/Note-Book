@@ -1,0 +1,104 @@
+<%- include('partials/header.ejs'); -%>
+
+<style>
+  /* General styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .title-section {
+    text-align: center;
+    grid-column: 1 / -1;
+  }
+  .book-details,
+  .notes-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .book-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .book-title {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  .author,
+  .isbn,
+  .rating,
+  .summary {
+    margin-top: 10px;
+    color: #666;
+  }
+  .notes-content p {
+    margin: 0;
+    color: #666;
+  }
+  /* Go back link styling */
+  .go-back {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    
+    
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 2px solid #333;
+    padding: 5px;
+  }
+  .go-back:hover {
+    color: #dfb162;
+    border-top: 2px solid #dfb162;
+    border-bottom: none;
+  }
+  </style>
+
+<div class="container">
+  <a class="go-back" href="/index"> Go back </a>
+  <div id="title">
+    <div>
+      <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number %>-M.jpg" alt="Book cover">
+    </div>
+    <div class="book-title">
+      <h2><%= book.title %></h2>
+    </div>
+    <div class="author">
+      <p><strong>By:</strong> <%= book.author %> </p>
+    </div>
+    <div class="isbn">
+      <p><strong>ISBN Number:</strong> <%= book.isbn_number %></p>
+    </div>
+    <div class="rating">
+      <p><strong>Rating:</strong> <%= book.rating %>/10</p>
+      <p><strong>Read Date:</strong> <%= book.date_read %></p>
+    </div>
+    <div class="summary">
+      <p><strong>Summary:</strong> <%= book.summary %></p>
+    </div>
+    <h2>My Notes</h2>
+    <div class="notes-content">
+      <p><%= book.notes %></p>
+    </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer.ejs'); -%>
